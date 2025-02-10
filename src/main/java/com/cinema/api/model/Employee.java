@@ -1,4 +1,4 @@
-package com.cinema.api.entities;
+package com.cinema.api.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
