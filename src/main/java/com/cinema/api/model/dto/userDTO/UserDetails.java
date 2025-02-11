@@ -1,9 +1,8 @@
 package com.cinema.api.model.dto.userDTO;
 
-import com.cinema.api.model.dto.AddressDTO.AddressDetails;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
+import com.cinema.api.model.dto.addressDTO.AddressDetails;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
@@ -13,12 +12,14 @@ public record UserDetails(
         String name,
 
         @NotBlank
+        @Email
         String email,
 
         @NotBlank
         String phone,
 
         @NotBlank
+        @Pattern(regexp = "\\d{11,14}")
         String cpf,
 
         @NotBlank
@@ -32,6 +33,7 @@ public record UserDetails(
         LocalDate birthDate,
 
         @NotNull
+        @Valid
         AddressDetails addressDetails
 ) {
 }

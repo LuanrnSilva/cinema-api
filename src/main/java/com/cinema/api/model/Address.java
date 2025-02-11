@@ -1,6 +1,6 @@
 package com.cinema.api.model;
 
-import com.cinema.api.model.dto.AddressDTO.AddressDetails;
+import com.cinema.api.model.dto.addressDTO.AddressDetails;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
