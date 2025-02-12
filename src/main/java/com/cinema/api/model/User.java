@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "tb_users")
+@Table(name = "tb_user")
 public class User {
 
     @Id
@@ -37,7 +37,7 @@ public class User {
         this.birthDate = userDetails.birthDate();
         this.phone = userDetails.phone();
         this.cpf = userDetails.cpf();
-        this.address = new Address(userDetails.addressDetails());
+        this.address = new Address(userDetails.address());
     }
 
 }

@@ -13,7 +13,7 @@ public record UserListDetails(Long id,
                               String phone,
                               Boolean active,
                               LocalDate birthDate,
-                              AddressDetails addressDetails) {
+                              AddressDetails address) {
 
     public UserListDetails(User user) {
         this(user.getId(), user.getName(), user.getEmail(), user.getCpf(), user.getPhone(),

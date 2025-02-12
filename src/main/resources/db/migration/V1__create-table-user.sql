@@ -1,4 +1,4 @@
-CREATE TABLE tb_users(
+CREATE TABLE tb_user(
     id bigint NOT NULL auto_increment,
     name varchar(100) NOT NULL,
     email varchar(100) NOT NULL UNIQUE,

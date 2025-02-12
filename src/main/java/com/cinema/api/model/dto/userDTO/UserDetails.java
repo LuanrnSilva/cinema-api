@@ -34,6 +34,6 @@ public record UserDetails(
 
         @NotNull
         @Valid
-        AddressDetails addressDetails
+        AddressDetails address
 ) {
 }
