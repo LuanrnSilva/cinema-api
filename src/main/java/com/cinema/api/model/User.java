@@ -1,7 +1,10 @@
 package com.cinema.api.model;
 
 import com.cinema.api.model.dto.userDTO.UserDetails;
+import com.cinema.api.model.dto.userDTO.UserDetailsToUpdate;
+import com.cinema.api.model.dto.userDTO.UserListDetails;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -40,5 +43,24 @@ public class User {
         this.address = new Address(userDetails.address());
     }
 
+    public UserListDetails updateInformations(@Valid UserDetailsToUpdate userDetailsToUpdate) {
+        if (userDetailsToUpdate.name() != null) {
+            this.name = userDetailsToUpdate.name();
+        }
+        if (userDetailsToUpdate.email() != null) {
+            this.email = userDetailsToUpdate.email();
+        }
+        if (userDetailsToUpdate.phone() != null) {
+            this.phone = userDetailsToUpdate.phone();
+        }
+        if (userDetailsToUpdate.address() != null) {
+            this.address.updateInformations(userDetailsToUpdate.address());
+        }
+        return null;
+    }
+
+    public void remove() {
+        this.active = false;
+    }
 }
     

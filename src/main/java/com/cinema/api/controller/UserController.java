@@ -2,6 +2,7 @@ package com.cinema.api.controller;
 
 import com.cinema.api.model.User;
 import com.cinema.api.model.dto.userDTO.UserDetails;
+import com.cinema.api.model.dto.userDTO.UserDetailsToUpdate;
 import com.cinema.api.model.dto.userDTO.UserListDetails;
 import com.cinema.api.service.UserService;
 import jakarta.transaction.Transactional;
@@ -34,5 +35,18 @@ public class UserController {
     @GetMapping
     public ResponseEntity<Page<UserListDetails>> getAllUsers(Pageable pageable) {
         return ResponseEntity.ok(userService.getAllUsers(pageable));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity<UserListDetails> update(@RequestBody @Valid UserDetailsToUpdate userDetailsToUpdate) {
+        return ResponseEntity.ok().body(userService.update(userDetailsToUpdate));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity delete(@PathVariable Long id) {
+        userService.inactivate(id);
+        return ResponseEntity.noContent().build();
     }
 }
